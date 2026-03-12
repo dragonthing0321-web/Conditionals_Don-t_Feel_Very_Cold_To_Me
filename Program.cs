@@ -4,32 +4,64 @@
     {
         static void Main(string[] args)
         {
-            // Asks user for input and checks if the number is negative and odd
+            // Asks user for whole number and assigns it to an integer variable
             Console.WriteLine("Enter a whole number:");
-            // Converts the input to an integer
             int number = Convert.ToInt32(Console.ReadLine());
-            bool isNegative = number < 0;
-            bool isOdd = number % 2 != 0;
-            Console.WriteLine($"Is the number negative? {isNegative}");
-            Console.WriteLine($"Is the number odd? {isOdd}");
-            // Uses Math.Max to find the largest of three numbers
-            Console.WriteLine("The largest of - 7, 15, and 3 is: " + Math.Max(-7, Math.Max(15, 3)));
-            // Uses a switch expression to determine the grade description
-            Console.WriteLine("Enter a grade (A, B, C, D, E, F)");
-            {   char grade = Convert.ToChar(Console.ReadLine().ToUpper());
-                string result = grade switch
-                {
-                    'A' => "Excellent",
-                    'B' => "Good",
-                    'C' => "Average",
-                    'D' => "Below Average",
-                    'E' => "Poor",
-                    'F' => "Failing",
-                    _ => "Invalid grade"
-                };
-                Console.WriteLine(result);
+
+            // Checks if the number is negative or positive
+            if (number < 0)
+            {
+                Console.WriteLine("The number is negative.");
+            }
+            else
+            {
+                Console.WriteLine("The number is not negative.");
+            }
+            //Checks if the number is odd or even
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("The number is even.");
+            }
+            else
+            {
+                Console.WriteLine("The number is odd.");
             }
 
+            // Creates two more integer variables and assigns them whole numbers
+            int num1 = 34;
+            int num2 = 42;
+            // Gets first max
+            int firstMax = Math.Max(number, num1);
+            // Gets maximum number
+            int max = Math.Max(firstMax, num2);
+            //Prints max to the console
+            Console.WriteLine($"The maximum of {number}, {num1}, and {num2} is: {max}");
+            // Asks user for a grade and assigns it to a char variable
+            Console.WriteLine("Enter a grade");
+            char grade = Console.ReadKey().KeyChar;
+            // Uses a switch statement to print a message based on the grade
+            switch (grade)
+            {
+                case 'A':
+                    Console.WriteLine("\nExcellent!");
+                    break;
+                case 'B':
+                    Console.WriteLine("\nGood job!");
+                    break;
+                case 'C':
+                    Console.WriteLine("\nYou passed.");
+                    break;
+                case 'D':
+                    Console.WriteLine("\nYou should try harder.");
+                    break;
+                case 'F':
+                    Console.WriteLine("\nBetter luck next time.");
+                    break;
+                default:
+                    Console.WriteLine("\nInvalid grade entered.");
+                    break;
+
+            }
         }
     }
 }
